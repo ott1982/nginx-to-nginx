@@ -1,0 +1,15 @@
+server { 
+    listen                  ${NGINX_PORT};
+    server_name             ${NGINX_HOST};
+    access_log              /dev/stdout main;
+    root                    /usr/share/nginx/html;
+    
+    
+    location / {
+    }
+
+    location /webserver {
+      proxy_pass      http://web-server/;
+      proxy_set_header        Oriol        Oriol;
+    }
+  }
