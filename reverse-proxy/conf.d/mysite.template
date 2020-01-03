@@ -12,4 +12,9 @@ server {
       proxy_pass      http://web-server/;
       proxy_set_header        Oriol        Oriol;
     }
+
+    location /kontexting {
+        rewrite ^/kontexting(?:/(.*))?$ /$1 break;
+        proxy_pass http://localhost:8080;
+    }
   }
